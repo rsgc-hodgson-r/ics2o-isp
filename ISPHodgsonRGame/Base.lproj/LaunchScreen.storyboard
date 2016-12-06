@@ -21,20 +21,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sniper Diaper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FY8-3I-h8X">
-                                <rect key="frame" x="135" y="112" width="104" height="21"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QGb-TD-zN0">
+                                <rect key="frame" x="4" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mcy-5K-1xr">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Jungle" translatesAutoresizingMaskIntoConstraints="NO" id="hC8-hf-cDD">
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="hC8-hf-cDD" firstAttribute="centerX" secondItem="mcy-5K-1xr" secondAttribute="centerX" id="Re5-Il-Rt8"/>
+                                            <constraint firstItem="hC8-hf-cDD" firstAttribute="centerY" secondItem="mcy-5K-1xr" secondAttribute="centerY" id="am9-jG-6al"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKs-Xi-bLJ">
+                                <rect key="frame" x="96" y="130" width="183" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Funky Monkey">
+                                        <attributes>
+                                            <font key="NSFont" size="25" name="ChalkboardSE-Bold"/>
+                                            <font key="NSOriginalFont" size="25" name="ChalkboardSE-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="monkey_armsup_happy" translatesAutoresizingMaskIntoConstraints="NO" id="LkT-eh-EZM">
+                                <rect key="frame" x="72" y="203" width="230" height="282"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LkT-eh-EZM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="4WO-ag-0pX"/>
+                            <constraint firstItem="LkT-eh-EZM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="f6J-e8-WWz"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="-433" y="143"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Jungle" width="1024" height="768"/>
+        <image name="monkey_armsup_happy" width="70" height="84"/>
+    </resources>
 </document>
