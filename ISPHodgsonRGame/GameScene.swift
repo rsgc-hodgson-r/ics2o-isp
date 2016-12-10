@@ -26,7 +26,9 @@ class GameScene : SKScene {
         addChild(monkey)
         let actionWait = SKAction.wait(forDuration: 2)
         let actionSpawn = SKAction.run() { [weak self] in self?.spawnObstacle() }
-        let actionSequence = SKActi
+        let actionSequence = SKAction.sequence([actionWait, actionSpawn])
+        let actionObstacleRepeat = SKAction.repeatForever(actionSequence)
+        run(actionObstacleRepeat) 
     }
     
     func spawnObstacle() {
