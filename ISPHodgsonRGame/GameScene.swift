@@ -24,15 +24,18 @@ class GameScene : SKScene {
         monkey.position = CGPoint(x: size.width / 2, y: 200)
         monkey.setScale(3.3)
         addChild(monkey)
+        //Periodically Spawn Obstacles
         let actionWait = SKAction.wait(forDuration: 2)
         let actionSpawn = SKAction.run() { [weak self] in self?.spawnObstacle() }
         let actionSequence = SKAction.sequence([actionWait, actionSpawn])
         let actionObstacleRepeat = SKAction.repeatForever(actionSequence)
-        run(actionObstacleRepeat) 
+        run(actionObstacleRepeat)
     }
     
     func spawnObstacle() {
         let obstacle = SKSpriteNode(imageNamed: "target")
+        
+            obstacle.setScale(0.2)
         
         let verticalPosition = CGFloat(arc4random_uniform(UInt32(size.height)))
         let horizontalPosition = size.width + obstacle.size.width
@@ -44,9 +47,14 @@ class GameScene : SKScene {
         
         let endingPosition = CGPoint(x: -100, y: verticalPosition )
         let actionMove = SKAction.move(to: endingPosition, duration: 5)
-        obstacle.run(actionMove)
         
-        obstacle.setScale(0.2)
+        
+        let actionRemove = SKAction.removeFromParent()
+        
+        let actionSequence = SKAction.sequence([actionMove, actionRemove])
+        
+    
+        obstacle.run(actionSequence)
     }
 }
 
