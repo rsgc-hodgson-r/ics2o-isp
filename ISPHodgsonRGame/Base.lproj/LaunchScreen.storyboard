@@ -52,7 +52,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="monkey_armsup_happy" translatesAutoresizingMaskIntoConstraints="NO" id="LkT-eh-EZM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Monkey" translatesAutoresizingMaskIntoConstraints="NO" id="LkT-eh-EZM">
                                 <rect key="frame" x="72" y="203" width="230" height="282"/>
                             </imageView>
                         </subviews>
@@ -70,6 +70,6 @@
     </scenes>
     <resources>
         <image name="Jungle" width="1024" height="768"/>
-        <image name="monkey_armsup_happy" width="70" height="84"/>
+        <image name="Monkey" width="70" height="84"/>
     </resources>
 </document>
