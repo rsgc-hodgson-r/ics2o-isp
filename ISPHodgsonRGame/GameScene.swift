@@ -17,26 +17,34 @@ class GameScene : SKScene {
         let background = SKSpriteNode(imageNamed: "Jungle")
         background.position = CGPoint(x: size.width / 2, y: size.height / 2 )
         background.size = self.frame.size
+        background.zPosition = -1
         addChild(background)
         background.size = self.frame.size
         
         monkey.position = CGPoint(x: size.width / 2, y: 200)
-        monkey.setScale(2.3)
+        monkey.setScale(3.3)
         addChild(monkey)
-      spawnObstacle()
+        let actionWait = SKAction.wait(forDuration: 2)
+        let actionSpawn = SKAction.run() { [weak self] in self?.spawnObstacle() }
+        let actionSequence = SKActi
     }
     
     func spawnObstacle() {
         let obstacle = SKSpriteNode(imageNamed: "target")
-        let startingPosition = CGPoint(x: 200, y: size.height)
+        
+        let verticalPosition = CGFloat(arc4random_uniform(UInt32(size.height)))
+        let horizontalPosition = size.width + obstacle.size.width
+        let startingPosition = CGPoint(x: horizontalPosition, y: verticalPosition)
+        
         obstacle.position = startingPosition
         
         addChild(obstacle)
         
-        let endingPosition = CGPoint(x: 0, y: 0)
+        let endingPosition = CGPoint(x: -100, y: verticalPosition )
         let actionMove = SKAction.move(to: endingPosition, duration: 5)
         obstacle.run(actionMove)
         
+        obstacle.setScale(0.2)
     }
 }
 
