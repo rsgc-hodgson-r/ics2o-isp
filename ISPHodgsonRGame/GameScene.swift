@@ -46,7 +46,7 @@ import SpriteKit
         addChild(obstacle)
         
         let endingPosition = CGPoint(x: -100, y: verticalPosition )
-        let actionMove = SKAction.move(to: endingPosition, duration: 4.2)
+        let actionMove = SKAction.move(to: endingPosition, duration: 6)
         
         
         let actionRemove = SKAction.removeFromParent()
@@ -58,40 +58,60 @@ import SpriteKit
         obstacle.setScale(0.2)
         
         }
+        //method responds to a single touch
         override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+           
+            // when we touch a device are fingers are big
             guard let touch = touches.first else {
                 return
             }
+            //Print the location of the first touch
             let touchLocation = touch.location(in: self)
             
+           //print the location of the touch in the console
             print(touchLocation.x)
             print(touchLocation.y)
             
+            //let monkey move horizontally towards the touc.
             let destination = CGPoint (x: touchLocation.x, y: monkey.position.y)
             
+            //create action 
+            let actionMove = SKAction.move(to: destination, duration: 5)
             
+            // tell the monkey sprite to move
+            monkey.run(actionMove)
+            
+            shootProjectile()
         }
 
         func shootProjectile() {
     
             //creating an instance
-            let projectile = SKSpriteNode(imageNamed: "banana")
+            let projectile = SKSpriteNode(imageNamed: "fruit")
     
             // define starting positon
         let startingPosition =  CGPoint (x: monkey.position.x, y: monkey.position.y)
         projectile.position = startingPosition
-        projectile.setScale(0.2)
+        projectile.setScale(0.3)
         projectile.zPosition = 3
         
         
-            //add the obstacle to the scene
-            addChild(projectile)
+        //add the obstacle to the scene
+        addChild(projectile)
             
-            //Move the banana
-        let endingPosition = CGPoint(x: monkey.position.x, y: 1000 )
-        let projectileMove = SKAction.move(to: endingPosition, duration: 5)
-        projectile.run(projectileMove)
+        //Move the banana
+        let endingPosition = CGPoint(x: monkey.position.x, y: 2000)
+        let projectileMove = SKAction.move(to: endingPosition, duration: 2)
+        
+        let actionRemove = SKAction.removeFromParent() //This will remove the banana from the scene graph of the game
+            
+        // this defines the sequence of what should happen for this node
+        let actionSequence = SKAction.sequence([projectileMove, actionRemove])
+        
+            
+        
+        //now instead of running a single action we run the sequence.
+        projectile.run(actionSequence)
         }
        
     
