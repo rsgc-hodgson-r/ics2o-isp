@@ -99,6 +99,7 @@
 				TargetAttributes = {
 					3F45389B1DE7364800BE922B = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = GC48D7K2VX;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -262,6 +263,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GC48D7K2VX;
 				INFOPLIST_FILE = ISPHodgsonRGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.rsgc.hodgson.ryan.ISPHodgsonRGame;
@@ -274,6 +276,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GC48D7K2VX;
 				INFOPLIST_FILE = ISPHodgsonRGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.rsgc.hodgson.ryan.ISPHodgsonRGame;
