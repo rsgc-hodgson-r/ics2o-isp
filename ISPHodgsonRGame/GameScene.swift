@@ -11,6 +11,13 @@ import SpriteKit
 class GameScene : SKScene {
     
     let monkey = SKSpriteNode(imageNamed: "Monkey")
+    
+    // label and variable to track score
+    
+    let scoreLabel = SKLabelNode(fontNamed: "Helvitica-Bold")
+    var score = 0 // This tracks the current score
+    
+    //This function runs once at the start of the game
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
         let background = SKSpriteNode(imageNamed: "Jungle")
@@ -31,6 +38,15 @@ class GameScene : SKScene {
         let actionSequence = SKAction.sequence([actionWait, actionSpawn])
         let actionObstacleRepeat = SKAction.repeatForever(actionSequence)
         run(actionObstacleRepeat)
+        
+        // add the heads up display to show the score
+        scoreLabel.text = String(score)
+        scoreLabel.fontColor = SKColor.white
+        scoreLabel.fontSize = 96
+        scoreLabel.zPosition = 150 // Make sure this Heads up Display is on top of all the other nodes in the scene
+        scoreLabel.position = CGPoint(x: size.width - size.width / 2 , y: size.height - size.height / 1)
+        addChild(scoreLabel)
+        
     }
     
     // This method runs about 60 times per second (60 fps)
@@ -58,6 +74,7 @@ class GameScene : SKScene {
         })
         
     }
+    
     // Check for Collisions between a given target and a banana
     func lookForTargetsHitBy(_ banana : SKSpriteNode) {
     
@@ -73,7 +90,15 @@ class GameScene : SKScene {
     
         if target.frame.insetBy(dx: 20, dy:
             20).intersects(banana.frame.insetBy(dx: 20, dy: 20)) {
-        
+            
+    //increase the score variable
+    
+    score += 1
+    
+    //update the score label 
+            
+    scoreLabel.text = String(score)
+            
     // There is a collision so remove both nodes
     banana.removeFromParent()
     target.removeFromParent()
